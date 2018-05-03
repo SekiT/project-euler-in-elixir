@@ -1,6 +1,4 @@
 Stream.iterate({600_851_475_143, 1, 2}, fn
-  ({1, _, _} = final_state) ->
-    final_state
   ({n, _, divisor}) when rem(n, divisor) == 0 ->
     {div(n, divisor), divisor, divisor}
   ({n, max_divisor, divisor}) ->
