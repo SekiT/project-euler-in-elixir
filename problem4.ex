@@ -1,10 +1,9 @@
 for a <- 100..999,
-    b <- 100..999 do
-  a * b
+    b <- 100..999,
+    product = a * b,
+    str = Integer.to_string(product),
+    str == String.reverse(str) do
+  product
 end
-|> Enum.filter(fn product ->
-  string = Integer.to_string(product)
-  string == String.reverse(string)
-end)
 |> Enum.max()
 |> IO.puts()
