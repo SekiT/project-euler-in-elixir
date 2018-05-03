@@ -12,7 +12,5 @@ Stream.iterate({600_851_475_143, 1, 2}, fn
     end
     {n, max_divisor, next_divisor}
 end)
-|> Stream.drop_while(fn {n, _, _} -> n > 1 end)
-|> Enum.take(1)
-|> case do [{_, max_divisor, _}] -> max_divisor end
-|> IO.puts()
+|> Enum.find(fn {n, _, _} -> n == 1 end)
+|> case do {_, max_divisor, _} -> IO.puts(max_divisor) end
