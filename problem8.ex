@@ -27,7 +27,8 @@ Stream.iterate({number, 0}, fn
     product =
       leading_digit <> following_digits
       |> String.to_charlist()
-      |> List.foldl(1, fn(digit, acc) -> acc * (digit - ?0) end)
+      |> Enum.map(&(&1 - ?0))
+      |> Enum.reduce(&*/2)
     {following_digits <> rest, Enum.max([max_product, product])}
   {_, max_product} ->
     {"", max_product}
